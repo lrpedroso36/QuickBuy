@@ -6,7 +6,7 @@ using QuickBuy.Dominio.Entidades;
 
 namespace QuickBuy.Repositorios.Repositorios
 {
-    public class UsuarioRepositorio : BaseRepositorio<Usuarios>, IUsuarioRepositorio
+    public class UsuarioRepositorio : BaseRepositorio<Usuario>, IUsuarioRepositorio
     {
     }
 }

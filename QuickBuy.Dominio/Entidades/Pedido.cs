@@ -24,6 +24,8 @@ namespace QuickBuy.Dominio.Entidades
         /// </summary>
         public ICollection<ItemPedido> ItensPedido { get; set; }
 
+        public Usuario Usuario { get; set; }
+
         public override void Validacao()
         {
             LimparMensagemValidacao();
