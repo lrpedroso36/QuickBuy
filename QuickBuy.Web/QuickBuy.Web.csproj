@@ -16,6 +16,7 @@
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.4" />
   </ItemGroup>
 
   <ItemGroup>
@@ -30,6 +31,8 @@
     <None Remove="ClientApp\src\app\produto\produto.component.ts" />
     <None Remove="ClientApp\src\app\usuario\login\login.component.ts" />
     <None Remove="ClientApp\src\model\usuario.ts" />
+    <None Remove="ClientApp\src\servicos\produto\produto.servico.ts" />
+    <None Remove="ClientApp\src\servicos\usuario\usuario.servico.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -41,6 +44,8 @@
     <TypeScriptCompile Include="ClientApp\src\app\produto\produto.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\usuario\login\login.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\model\usuario.ts" />
+    <TypeScriptCompile Include="ClientApp\src\servicos\produto\produto.servico.ts" />
+    <TypeScriptCompile Include="ClientApp\src\servicos\usuario\usuario.servico.ts" />
   </ItemGroup>
 
   <ItemGroup>
