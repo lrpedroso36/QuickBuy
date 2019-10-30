@@ -26,18 +26,11 @@ export class LoginComponent implements OnInit {
     }
 
     entrar() {
-
         this.usuarioServico.verificarUsuario(this.usuario)
-            .subscribe(data =>{
-
+            .subscribe(data => {
+                console.log(data);
             }, err => {
-
-            });
-
-
-        //if (this.usuario.email == "leandro@teste.com.br" && this.usuario.senha == "abc123") {
-        //    sessionStorage.setItem("usuario-autenticado", "1");
-        //    this.router.navigate([this.returnUrl]);
-        //}
+                    console.log(err.error);
+            }); 
     }
 }
