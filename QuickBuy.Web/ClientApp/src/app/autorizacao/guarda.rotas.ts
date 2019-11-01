@@ -11,13 +11,12 @@ export class GuardaRotas implements CanActivate {
     constructor(private router: Router,
                 private usuarioServico: UsuarioServico)
     {
-        this.router = router;
+        
     }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-        var autenticado = sessionStorage.getItem("usuario-autenticado");
 
-        if (autenticado == "1") {
+        if (this.usuarioServico.usuario_autenticado()) {
             return true;
         }
 
