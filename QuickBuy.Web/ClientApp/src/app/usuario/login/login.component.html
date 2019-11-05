@@ -8,11 +8,11 @@
            name="email"
            placeholder="Informe seu email"
            class="form-control mb-2"
-           [ngClass] = "{ 'is-invalid' : email.invalid && (email.dirty || email.touched), 'is-valid': email.valid && (email.dirty || email.touched) }"
+           [ngClass]="{ 'is-invalid' : email.invalid && (email.dirty || email.touched), 'is-valid': email.valid && (email.dirty || email.touched) }"
            [(ngModel)]="usuario.email"
            #email="ngModel"
            email
-           required/>
+           required />
 
     <div class="invalid-feedback mb-2" *ngIf="email.invalid && (email.dirty || email.touched)">
       <div *ngIf="email.errors.required">
@@ -29,10 +29,10 @@
            name="senha"
            placeholder="Senha"
            class="form-control mb-2"
-           [ngClass] = "{ 'is-invalid' : senha.invalid && (senha.dirty || senha.touched), 'is-valid': senha.valid && (senha.dirty || senha.touched) }"
+           [ngClass]="{ 'is-invalid' : senha.invalid && (senha.dirty || senha.touched), 'is-valid': senha.valid && (senha.dirty || senha.touched) }"
            [(ngModel)]="usuario.senha"
            #senha="ngModel"
-           required/>
+           required />
 
     <div class="invalid-feedback mb-2" *ngIf="senha.invalid && (senha.dirty || senha.touched)">
       <div *ngIf="senha.errors.required">
@@ -40,11 +40,14 @@
       </div>
     </div>
 
-    <button class="btn btn-primary btn-block mb-2" type="submit" (click)="entrar()">Entrar</button>
+    <button class="btn btn-primary btn-block mb-2" type="submit" (click)="entrar()" [disabled]="ativar_spinner">
+      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="ativar_spinner"></span>
+      Entrar
+    </button>
     <div class="alert alert-danger" *ngIf="mensagem">
       {{ mensagem }}
     </div>
     <img src="../../../assets/img/quick-logo.jpg" />
- 
+
   </form>
 </div>
