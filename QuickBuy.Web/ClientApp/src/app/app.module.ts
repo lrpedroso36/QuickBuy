@@ -30,7 +30,7 @@ import { CadastroUsuarioComponent } from './usuario/cadastro/cadastro.usuario.co
             { path: '', component: HomeComponent, pathMatch: 'full' },
             { path: 'produto', component: ProdutoComponent, canActivate: [GuardaRotas] },
             { path: 'entrar', component: LoginComponent },
-            { path: 'cadastro-usuario', component: CadastroUsuarioComponent }
+            { path: 'novo-usuario', component: CadastroUsuarioComponent }
         ])
     ],
     providers: [UsuarioServico],
