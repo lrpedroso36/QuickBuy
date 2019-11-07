@@ -23,10 +23,10 @@ export class CadastroUsuarioComponent implements OnInit {
         var usuario_verificado = this.usuarioServico.cadastrarUsuario(this.usuario)
             .subscribe(
                 usuarioRetorno => {
-
+        
                 },
                 usuarioError => {
-
+        
                 }
             );
     }

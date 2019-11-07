@@ -6,7 +6,7 @@
     <input type="email"
            id="inputEmail"
            name="email"
-           placeholder="Informe seu email"
+           placeholder="E-mail"
            class="form-control mb-2"
            [ngClass]="{ 'is-invalid' : email.invalid && (email.dirty || email.touched), 'is-valid': email.valid && (email.dirty || email.touched) }"
            [(ngModel)]="usuario.email"
@@ -45,7 +45,7 @@
     <input type="text"
            id="inputNome"
            name="nome"
-           placeholder="Informe seu Nome"
+           placeholder="Nome"
            class="form-control mb-2"
            [ngClass]="{ 'is-invalid' : nome.invalid && (nome.dirty || nome.touched), 'is-valid': nome.valid && (nome.dirty || nome.touched) }"
            [(ngModel)]="usuario.nome"
@@ -58,15 +58,37 @@
       </div>
     </div>
 
+    <label for="inputSobreNome" class="sr-only">Sobre Nome</label>
+    <input type="text"
+           id="inputSobreNome"
+           name="sobreNome"
+           placeholder="Sobre Nome"
+           class="form-control mb-2"
+           [ngClass]="{ 'is-invalid' : sobreNome.invalid && (sobreNome.dirty || sobreNome.touched), 'is-valid': sobreNome.valid && (sobreNome.dirty || sobreNome.touched) }"
+           [(ngModel)]="usuario.sobreNome"
+           #sobreNome="ngModel"
+           required />
 
-    <button class="btn btn-primary btn-block mb-2" type="submit" (click)="entrar()" [disabled]="ativar_spinner">
+    <div class="invalid-feedback mb-2" *ngIf="sobreNome.invalid && (sobreNome.dirty || sobreNome.touched)">
+      <div *ngIf="sobreNome.errors.required">
+        Sobre Nome é obrigatório!
+      </div>
+    </div>
+
+
+    <button class="btn btn-primary btn-block mb-2" type="submit" (click)="cadastrar()" [disabled]="ativar_spinner">
       <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="ativar_spinner"></span>
-      Entrar
+      Cadastrar
     </button>
+    <div>
+      <a [routerLink]='["/entrar"]'>
+        Voltar
+      </a>
+    </div>
+
     <div class="alert alert-danger" *ngIf="mensagem">
       {{ mensagem }}
     </div>
-    <img src="../../../assets/img/quick-logo.jpg" />
 
   </form>
 </div>
