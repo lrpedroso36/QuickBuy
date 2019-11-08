@@ -10,6 +10,9 @@ import { UsuarioServico } from "../../../servicos/usuario/usuario.servico";
 
 export class CadastroUsuarioComponent implements OnInit {
     public usuario: Usuario;
+    public ativar_spinner: boolean;
+    public mensagem: string;
+    public usuarioCadastrado: boolean;
 
     constructor(private usuarioServico: UsuarioServico) {
 
@@ -23,10 +26,11 @@ export class CadastroUsuarioComponent implements OnInit {
         var usuario_verificado = this.usuarioServico.cadastrarUsuario(this.usuario)
             .subscribe(
                 usuarioRetorno => {
-        
+                    this.usuarioCadastrado = true;
+                    this.mensagem = "";
                 },
                 usuarioError => {
-        
+                    this.mensagem = usuarioError.error;
                 }
             );
     }

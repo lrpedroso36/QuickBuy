@@ -90,5 +90,11 @@
       {{ mensagem }}
     </div>
 
+    <div class="alert alert-sucess" *ngIf="usuarioCadastro">
+      Usuário cadastrado com sucesso! <a class="alert-link" [routerLink]='["/entrar"]'> Clique aqui</a> parar entrar no sistema com a sua conta.
+    </div>
+
+  
+
   </form>
 </div>
