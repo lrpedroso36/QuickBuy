@@ -17,8 +17,13 @@ export class UsuarioServico {
 
     get usuario(): Usuario {
         let usuario_json = sessionStorage.getItem("usuario-autenticado");
+        console.log(usuario_json);
         this._usuario = JSON.parse(usuario_json);
         return this._usuario;
+    }
+
+    get headers(): HttpHeaders {
+        return new HttpHeaders().set('content-type', 'application/json');
     }
 
     public usuario_autenticado(): boolean {
@@ -46,17 +51,6 @@ export class UsuarioServico {
     }
 
     public cadastrarUsuario(usuario: Usuario): Observable<Usuario> {
-
-        const headers = new HttpHeaders().set('content-type', 'application/json');
-
-        var body = {
-            email : usuario.email,
-            senha : usuario.senha,
-            nome : usuario.nome,
-            sobreNome : usuario.sobreNome
-        }
-
-        return this.http.post<Usuario>(this.baseURL + "api/usuario", body, { headers });
-
+        return this.http.post<Usuario>(this.baseURL + "api/usuario", JSON.stringify(usuario), { headers: this.headers });
     }
 }

@@ -23,14 +23,18 @@ export class CadastroUsuarioComponent implements OnInit {
     }
 
     public cadastrar() {
+        this.ativar_spinner = true;
+
         var usuario_verificado = this.usuarioServico.cadastrarUsuario(this.usuario)
             .subscribe(
                 usuarioRetorno => {
                     this.usuarioCadastrado = true;
                     this.mensagem = "";
+                    this.ativar_spinner = false
                 },
                 usuarioError => {
                     this.mensagem = usuarioError.error;
+                    this.ativar_spinner = false
                 }
             );
     }
