@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.IO;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using QuickBuy.Dominio.Entidades;
 using QuickBuy.Dominio.ObjetoDeValor;
 using QuickBuy.Repositorios.Config;
@@ -48,5 +50,10 @@ namespace QuickBuy.Repositorios.Contexto
 
             base.OnModelCreating(modelBuilder);
         }
+
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseMySql("server=remotemysql.com;port=3306;uid=357gRltGhr;pwd=rRcHkeyo6g;database=357gRltGhr");
+        //}
     }
 }

@@ -69,6 +69,7 @@
 
   <ItemGroup>
     <Folder Include="ClientApp\src\app\usuario\cadastro\" />
+    <Folder Include="wwwroot\arquivos\" />
   </ItemGroup>
 
   <ItemGroup>
