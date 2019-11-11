@@ -31,7 +31,7 @@ namespace QuickBuy.Web.Controllers
             try
             {
                 var produtos = _produtoRepositorio.ObterTodos();
-                return Ok(produtos);
+                return Json(produtos);
             }
             catch (Exception ex)
             {

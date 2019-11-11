@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ProdutoServico } from "../../servicos/produto/produto.servico";
 import { Produto } from "../../model/produto";
+import { Router } from "@angular/router";
 
 @Component({
     selector: "app-produto",
@@ -14,7 +15,7 @@ export class ProdutoComponent implements OnInit {
     public ativar_spinner: boolean;
     public menssagem: string;
 
-    constructor(private produtoServico: ProdutoServico) {
+    constructor(private produtoServico: ProdutoServico, private router: Router) {
 
     }
 
@@ -24,30 +25,35 @@ export class ProdutoComponent implements OnInit {
 
     public inputChange(files: FileList) {
         this.arquivoSelecionado = files.item(0);
-        this.ativar_spinner = true;
+        this.ativarEspera();
         this.produtoServico.enviarArquivo(this.arquivoSelecionado)
             .subscribe(nomeArquivo => {
                 this.produto.nomeArquivo = nomeArquivo;
-                alert(this.produto.nomeArquivo);
-                console.log(nomeArquivo);
-                this.ativar_spinner = false;
-            },
-                error => {
-                    console.log(error);
-                    this.ativar_spinner = false;
-                });
+                this.desativarEspera();
+            }, error => {
+                console.log(error);
+                this.desativarEspera();
+            });
     }
 
     public cadastrar() {
+        this.ativarEspera();
         this.produtoServico.cadastar(this.produto)
-            .subscribe(
-                produtoJson => {
-                    console.log(produtoJson);
-               },
-                e => {
-                    console.log(e);
-                    this.menssagem = e.error;
-                }
-            );
+            .subscribe(produtoJson => {
+                this.desativarEspera();
+                this.router.navigate(['/pesquisar-produto'])
+            }, error => {
+                console.log(error);
+                this.desativarEspera();
+                this.menssagem = error.error;
+            });
+    }
+
+    public ativarEspera() {
+        this.ativar_spinner = true;
+    }
+
+    public desativarEspera() {
+        this.ativar_spinner = false;
     }
 }
