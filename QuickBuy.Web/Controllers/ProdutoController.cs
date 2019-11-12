@@ -51,7 +51,15 @@ namespace QuickBuy.Web.Controllers
                     return BadRequest(produto.ObterMensagemValidacao());
                 }
 
-                _produtoRepositorio.Adicionar(produto);
+                if (produto.Id > 0)
+                {
+                    _produtoRepositorio.Atualizar(produto);
+                }
+                else
+                {
+                    _produtoRepositorio.Adicionar(produto);
+                }
+
                 return Created("api/produto", produto);
             }
             catch (Exception ex)
@@ -78,6 +86,26 @@ namespace QuickBuy.Web.Controllers
                 }
 
                 return Json(novoNomeArquivo);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
+        [HttpPost("deletar")]
+        public IActionResult DeletarProduto([FromBody] Produto produto)
+        {
+            try
+            {
+                _produtoRepositorio.Deletar(produto);
+
+                var pastaArquivos = $"{_hostingEnvironment.WebRootPath}/arquivos/";
+                var nomeCompleto = $"{pastaArquivos}{produto.NomeArquivo}";
+                System.IO.File.Delete(nomeCompleto);
+
+                var produtos = _produtoRepositorio.ObterTodos();
+                return Json(produtos);
             }
             catch (Exception ex)
             {

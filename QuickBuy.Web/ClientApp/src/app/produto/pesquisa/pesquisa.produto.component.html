@@ -21,8 +21,16 @@
       <td>{{ p.descricao }}</td>
       <td>R$ {{ p.preco }}</td>
       <td><img style="width:30%; height:10%" src="../../../../../arquivos/{{ p.nomeArquivo }}" /></td>
-      <td><a href="#">Editar</a></td>
-      <td><a href="#">Excluir</a></td>
+      <td>
+        <button class="btn btn-warning btn-sm" (click)="editarProduto(p)">
+          Editar
+        </button>
+      </td>
+      <td>
+        <button class="btn btn-danger btn-sm" (click)="deletarProduto(p)">
+          Deletar
+        </button>
+      </td>
     </tr>
   </tbody>
 </table>

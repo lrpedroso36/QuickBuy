@@ -62,10 +62,15 @@
   </div>
 </div>
 
-<button class="btn btn-primary mb-2" (click)="cadastrar()" [disabled]="ativar_spinner">
-  <span class="spinner-border spinner-border-sm" *ngIf="ativar_spinner"></span>
-  Cadastrar
-</button>
+<div class="form-inline">
+  <button class="btn btn-primary" style="margin-right: 6px" (click)="cadastrar()" [disabled]="ativar_spinner">
+    <span class="spinner-border spinner-border-sm" *ngIf="ativar_spinner"></span>
+    Cadastrar
+  </button>
+  <button class="btn btn-secondary" (click)="cancelar()">
+    Cancelar
+  </button>
+</div>
 
 <div class="alert alert-danger col-md-4" *ngIf="menssagem">
   {{ menssagem }}
