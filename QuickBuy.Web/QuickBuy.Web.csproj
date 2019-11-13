@@ -37,6 +37,7 @@
     <None Remove="ClientApp\src\model\produto.ts" />
     <Content Remove="wwwroot\arquivos\f7c86da8-dd0f-43bc-89c7-8f994ee2d165.jpg" />
     <None Remove="ClientApp\src\app\produto\pesquisa\pesquisa.produto.component.ts" />
+    <None Remove="ClientApp\src\app\loja\pesquisa\loja.pesquisa.component.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -62,6 +63,7 @@
     <TypeScriptCompile Include="ClientApp\src\app\usuario\cadastro\cadastro.usuario.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\model\produto.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\produto\pesquisa\pesquisa.produto.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\loja\pesquisa\loja.pesquisa.component.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -74,6 +76,8 @@
     <Folder Include="ClientApp\src\app\usuario\cadastro\" />
     <Folder Include="wwwroot\arquivos\" />
     <Folder Include="ClientApp\src\app\produto\pesquisa\" />
+    <Folder Include="ClientApp\src\app\loja\" />
+    <Folder Include="ClientApp\src\app\loja\pesquisa\" />
   </ItemGroup>
 
   <ItemGroup>
