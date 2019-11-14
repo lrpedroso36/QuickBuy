@@ -53,12 +53,10 @@ export class ProdutoComponent implements OnInit {
                 console.log(error);
                 this.desativarEspera();
                     this.menssagem = error.error;
-                    sessionStorage.removeItem('produtoSession');
             });
     }
 
     public cancelar() {
-        sessionStorage.removeItem('produtoSession');
         this.router.navigate(['/pesquisar-produto'])
     }
 
