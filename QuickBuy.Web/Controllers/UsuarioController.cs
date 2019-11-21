@@ -26,7 +26,6 @@ namespace QuickBuy.Web.Controllers
                 {
                     return BadRequest("Usuario já cadastrado no sistema.");
                 }
-
                 _usuarioRepositorio.Adicionar(usuario);
 
                 return Ok();
@@ -44,9 +43,9 @@ namespace QuickBuy.Web.Controllers
             {
                 var usuarioAutenticado = _usuarioRepositorio.AutenticarUsuario(usuario.Email, usuario.Senha);
 
-                if (usuarioAutenticado)
+                if (usuarioAutenticado != null)
                 {
-                    return Ok(usuario);
+                    return Ok(usuarioAutenticado);
                 }
 
                 return NotFound("Usuario ou senha inválido!");

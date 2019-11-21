@@ -15,9 +15,9 @@ namespace QuickBuy.Repositorios.Repositorios
             _quickBuyContext = quickBuyContext;
         }
 
-        public bool AutenticarUsuario(string email, string senha)
+        public Usuario AutenticarUsuario(string email, string senha)
         {
-            return _quickBuyContext.Set<Usuario>().Any(x => x.Email.ToLower() == email.ToLower() && x.Senha.ToLower() == senha.ToLower());
+            return _quickBuyContext.Set<Usuario>().FirstOrDefault(x => x.Email.ToLower() == email.ToLower() && x.Senha.ToLower() == senha.ToLower());
         }
 
         public Usuario Obter(string email)
