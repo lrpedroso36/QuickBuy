@@ -60,7 +60,6 @@ export class LojaEfetivarComponent implements OnInit {
         let pedido = this.criarPedido();
         this.pedidoServico.efetivarCompra(pedido)
             .subscribe(pedidoId => {
-                console.log(pedidoId);    
                 sessionStorage.setItem("pedidoId", pedidoId.toString());
                 this.produtos = [];
                 this.carrinhoCompras.limparCarrinhoCompras();
