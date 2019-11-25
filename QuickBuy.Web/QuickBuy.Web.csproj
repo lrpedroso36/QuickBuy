@@ -48,6 +48,7 @@
     <None Remove="ClientApp\src\model\itemPedido.ts" />
     <None Remove="ClientApp\src\servicos\pedido\pedido.servico.ts" />
     <None Remove="ClientApp\src\app\loja\efetivar\loja.compra.realizada.component.ts" />
+    <Content Remove="wwwroot\arquivos\f7c86da8-dd0f-43bc-89c7-8f994ee2d165.jpg" />
   </ItemGroup>
 
   <ItemGroup>
